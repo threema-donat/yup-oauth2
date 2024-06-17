@@ -27,13 +27,13 @@ name = "tests"
 required-features = ["hyper-rustls", "service-account", "ring"]
 
 [features]
-default = ["hyper-rustls", "rustls", "service-account", "ring"]
+default = ["hyper-rustls", "service-account", "ring"]
 service_account = ["service-account"]
-service-account = ["hyper-rustls", "rustls", "rustls-pemfile"]
-hyper-rustls = ["dep:hyper-rustls", "rustls"]
+service-account = ["rustls-pemfile"]
+hyper-rustls = ["dep:hyper-rustls", "dep:rustls"]
 ring = ["rustls/ring", "hyper-rustls?/ring"]
 aws-lc-rs = ["rustls/aws_lc_rs", "hyper-rustls?/aws-lc-rs"]
-hyper-tls = ["dep:hyper-tls"]
+hyper-tls = ["dep:hyper-tls", "dep:rustls"]
 
 [dependencies]
 anyhow = "1.0.38"
