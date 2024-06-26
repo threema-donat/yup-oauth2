@@ -30,10 +30,12 @@ required-features = ["hyper-rustls", "service-account", "ring"]
 default = ["hyper-rustls", "service-account", "ring"]
 service_account = ["service-account"]
 service-account = ["rustls-pemfile"]
-hyper-rustls = ["dep:hyper-rustls", "dep:rustls"]
+hyper-rustls = ["dep:hyper-rustls", "__rustls"]
 ring = ["rustls/ring", "hyper-rustls?/ring"]
 aws-lc-rs = ["rustls/aws_lc_rs", "hyper-rustls?/aws-lc-rs"]
-hyper-tls = ["dep:hyper-tls", "dep:rustls"]
+hyper-tls = ["dep:hyper-tls", "__rustls"]
+# hidden features
+__rustls = ["dep:rustls"]
 
 [dependencies]
 anyhow = "1.0.38"
